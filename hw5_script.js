@@ -54,7 +54,7 @@ function DonutMaster() {
   //function to display shop name, donuts per hour and donuts per day
   this.generateReport = function () {
     for (var i = 0; i < printArray.length; i++) {
-        alert(printArray[i].location + " Donuts per hour: " + printArray[i].getDonutsPerHour() + "    Donuts per day: " + printArray[i].getDonutsPerDay());
+        alert(printArray[i].location + " Donuts per hour: " + printArray[i].donutsPerHourArray + "    Donuts per day: " + printArray[i].donutsPerDay);
     }
   };
 
@@ -62,10 +62,10 @@ function DonutMaster() {
   this.addShop = function(){
 
     //create a new local array to be eddited
-    var addShopArray = new Array();
-      for (var i = 0; i < printArray.length; i++) {
-        addShopArray.push([printArray[i].location, printArray[i].hoursOpen]);
-      }
+    var addShopArray = [];
+    for (var i = 0; i < printArray.length; i++) {
+      addShopArray.push([printArray[i].location, printArray[i].hoursOpen]);
+    }
 
     //get parameters for the new shop and add them to the array
     var newShopName = prompt("Enter a name or location for the new shop");
@@ -74,8 +74,8 @@ function DonutMaster() {
     addShopArray.push([newShopName, newShopDaily]);
 
     //loop through the array and display the values, including the new shop
-    for (var i = 0; i < addShopArray.length; i++) {
-      alert("Shop name and hours open: " + addShopArray[i]);
+    for (var j = 0; j < addShopArray.length; j++) {
+      alert("Shop name and hours open: " + addShopArray[j]);
     }
 
   };
@@ -125,13 +125,53 @@ var managerBob = new DonutMaster();
 generateTable();
 
 //print detailed information to the console
-for (i = 0; i < printArray.length; i++) {
+for (var i = 0; i < printArray.length; i++) {
 
   console.log(printArray[i].location);
 
-  console.log("For the randomly generated day, the " + printArray[i].location + " store, which is open " + printArray[i].hoursOpen + " hours per day, had the following customers per hour: " + printArray[i].ranCustArray);
+  console.log("For the randomly generated day, the " + printArray[i].location + " store, which is open " + printArray[i].hoursOpen + " hours per day, had the following customers per hour: " + printArray[i].randomCustArray);
 
-  console.log("The corresponding donuts per hour needed (rounded up) given the average of " + printArray[i].donutAverage + " donuts per customer, for the " + printArray[i].location + " store, therefore would be as follows: " + printArray[i].donutsHourArray);
+  console.log("The corresponding donuts per hour needed (rounded up) given the average of " + printArray[i].donutAverage + " donuts per customer, for the " + printArray[i].location + " store, therefore would be as follows: " + printArray[i].donutsPerHourArray);
 
   console.log("Given these numbers, the total number of donuts needed for this day would be " + printArray[i].donutsPerDay + " at an average of " + printArray[i].hourlyAverage + " donuts an hour (rounded up).");
+}
+
+//function to display all the data from the simulation.
+function displayData () {
+
+  //switch statement to find specific data by location name
+  switch(prompt("Enter a location name to get detailed data.").toLowerCase()) {
+
+    case "downtown":
+      alert("Random Customers Generated Per Hour Open: " + downtown.randomCustArray);
+      alert("Donuts sold per hour given an average of " + downtown.donutAverage + " donuts per customer: " + downtown.donutsPerHourArray);
+      break;
+
+    case "capitol hill":
+      alert("Random Customers Generated Per Hour Open: " + capitolHill.randomCustArray);
+      alert("Donuts sold per hour given an average of " + capitolHill.donutAverage + " donuts per customer: " + capitolHill.donutsPerHourArray);
+      break;
+
+    case "south lake union":
+     alert("Random Customers Generated Per Hour Open: " + southLakeUnion.randomCustArray);
+      alert("Donuts sold per hour given an average of " + southLakeUnion.donutAverage + " donuts per customer: " + southLakeUnion.donutsPerHourArray);
+      break;
+
+    case "wedgewood":
+      alert("Random Customers Generated Per Hour Open: " + wedgewood.randomCustArray);
+     alert("Donuts sold per hour given an average of " + wedgewood.donutAverage + " donuts per customer: " + wedgewood.donutsPerHourArray);
+      break;
+
+    case "ballard":
+      alert("Random Customers Generated Per Hour Open: " + ballard.randomCustArray);
+      alert("Donuts sold per hour given an average of " + ballard.donutAverage + " donuts per customer: " + ballard.donutsPerHourArray);
+      break;
+
+    default:
+      alert("Invalid name");
+  }
+}
+
+function refresh() {
+  window.history.go(0);
 }

@@ -1,69 +1,95 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Donut Shop - Homework 5</title>
     <link type="text/css" rel="stylesheet" href="hw5_stylesheet.css"/>
   </head>
 
   <body>
-    <header>
-      <h1>Donut Shop Simulator</h1>
-        <img src="https://dl.dropboxusercontent.com/u/69636/homer.jpg" />
-    </header>
+    <div>
 
-    <article>
-      <header>
-        <h2>Table showing customer and sales data for the randomly generated day</h2>
-        <p>Open the console to see detailed data information</p>
-        <p>Hit refresh to generate a new random day</p>
+      <header class="header">
+        <h1>Donut Shop Simulator</h1>
+          <img src="https://dl.dropboxusercontent.com/u/69636/homer.jpg" />
       </header>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Shop Location</th>
-            <th>Hours Open</th>
-            <th>Donuts /Hour</th>
-            <th>Donuts /Day</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="downtown">
-            <th>Downtown</th>
-            <td id="downtownHours"></td>
-            <td id="downtownDonutsPerHour"></td>
-            <td id="downtownDonutsPerDay"></td>
-          </tr>
-          <tr id="capitolHill">
-            <th>Capitol Hill</th>
-            <td id="capitolHillHours"></td>
-            <td id="capitolHillDonutsPerHour"></td>
-            <td id="capitolHillDonutsPerDay"></td>
-          </tr>
-          <tr id="southLakeUnion">
-            <th>South Lake Union</th>
-            <td id="sluHours"></td>
-            <td id="sluDonutsPerHour"></td>
-            <td id="sluDonutsPerDay"></td>
-          </tr>
-          <tr id="wedgewood">
-            <th>Wedgewood</th>
-            <td id="wedgewoodHours"></td>
-            <td id="wedgewoodDonutsPerHour"></td>
-            <td id="wedgewoodDonutsPerDay"></td>
-          </tr>
-          <tr id="ballard">
-            <th>Ballard</th>
-            <td id="ballardHours"></td>
-            <td id="ballardDonutsPerHour"></td>
-            <td id="ballardDonutsPerDay"></td>
-          </tr>
-        </tbody>
-      </table>
+      <aside>
+        <h3>Extra Features</h3>
+        <hr>
+        <p>Click to generate daily report</p>
+        <button onclick="managerBob.generateReport()">Click</button>
+        <hr class="separate">
+        <p>Click to display specific location data</p>
+        <button onclick="displayData()">Click</button>
+        <hr class="separate">
+        <p>Click to add a new shop and parameters</p>
+        <button onclick="managerBob.addShop()">Click</button>
+        <hr class="separate">
+      </aside>
 
-    </article>
+      <article>
+        <header>
+          <h2>Table for a randomly generated day</h2>
+          <p>Click to simulate a new day <button onclick="refresh()">Refresh</button></p>
+        </header>
 
+        <table>
+          <thead>
+            <tr>
+              <th>Shop Location</th>
+              <th>Hours Open</th>
+              <th>Donuts /Hour</th>
+              <th>Donuts /Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Downtown</th>
+              <td id="downtownHours"></td>
+              <td id="downtownDonutsPerHour"></td>
+              <td id="downtownDonutsPerDay"></td>
+            </tr>
+            <tr>
+              <th>Capitol Hill</th>
+              <td id="capitolHillHours"></td>
+              <td id="capitolHillDonutsPerHour"></td>
+              <td id="capitolHillDonutsPerDay"></td>
+            </tr>
+            <tr>
+              <th>South Lake Union</th>
+              <td id="sluHours"></td>
+              <td id="sluDonutsPerHour"></td>
+              <td id="sluDonutsPerDay"></td>
+            </tr>
+            <tr>
+              <th>Wedgewood</th>
+              <td id="wedgewoodHours"></td>
+              <td id="wedgewoodDonutsPerHour"></td>
+              <td id="wedgewoodDonutsPerDay"></td>
+            </tr>
+            <tr>
+              <th>Ballard</th>
+              <td id="ballardHours"></td>
+              <td id="ballardDonutsPerHour"></td>
+              <td id="ballardDonutsPerDay"></td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
 
+        <footer id="articleFooter">
+          <p id="tableFinePrint">* Average donuts per hour is rounded up to display on this table, however it is not rounded until the end for the total donuts per day</p>
+        </footer>
+
+      </article>
+
+      <footer>
+        <p>- Check the console for detailed information for the randomly generated day -</p>
+        <p id="finePrint">Code Fellows Foundations 1 - Homework 5</p>
+      </footer>
+
+    </div>
     <script src="hw5_script.js"></script>
   </body>
 </html>
