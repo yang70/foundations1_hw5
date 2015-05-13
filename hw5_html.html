@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Donut Shop - Homework 5</title>
+    <link type="text/css" rel="stylesheet" href="hw5_stylesheet.css"/>
+  </head>
+
+  <body>
+    <header>
+      <h1>Donut Shop Simulator</h1>
+        <img src="https://dl.dropboxusercontent.com/u/69636/homer.jpg" />
+    </header>
+
+    <article>
+      <header>
+        <h2>Table showing customer and sales data for the randomly generated day</h2>
+        <p>Open the console to see detailed data information</p>
+        <p>Hit refresh to generate a new random day</p>
+      </header>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Shop Location</th>
+            <th>Hours Open</th>
+            <th>Donuts /Hour</th>
+            <th>Donuts /Day</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="downtown">
+            <th>Downtown</th>
+            <td id="downtownHours"></td>
+            <td id="downtownDonutsPerHour"></td>
+            <td id="downtownDonutsPerDay"></td>
+          </tr>
+          <tr id="capitolHill">
+            <th>Capitol Hill</th>
+            <td id="capitolHillHours"></td>
+            <td id="capitolHillDonutsPerHour"></td>
+            <td id="capitolHillDonutsPerDay"></td>
+          </tr>
+          <tr id="southLakeUnion">
+            <th>South Lake Union</th>
+            <td id="sluHours"></td>
+            <td id="sluDonutsPerHour"></td>
+            <td id="sluDonutsPerDay"></td>
+          </tr>
+          <tr id="wedgewood">
+            <th>Wedgewood</th>
+            <td id="wedgewoodHours"></td>
+            <td id="wedgewoodDonutsPerHour"></td>
+            <td id="wedgewoodDonutsPerDay"></td>
+          </tr>
+          <tr id="ballard">
+            <th>Ballard</th>
+            <td id="ballardHours"></td>
+            <td id="ballardDonutsPerHour"></td>
+            <td id="ballardDonutsPerDay"></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </article>
+
+
+    <script src="hw5_script.js"></script>
+  </body>
+</html>
